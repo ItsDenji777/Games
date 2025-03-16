@@ -6,7 +6,7 @@
     <meta name="keywords" content="game,gaming,pc,developer,web,webiste">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kasra Seydi - Games</title>
+    <title data-key="webtitle">Kasra Seydi - Games</title>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="shortcut icon" href="https://itsdenji777.github.io/favicons/favicon.ico">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--Imports-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +39,14 @@
     
     <header>
         <a href="https://itsdenji777.github.io/"><img height="100" width="100" src="https://itsdenji777.github.io/favicons/favicon.svg" alt="Logo"></a>
-        <h2 style="margin-left: 99px;margin-top: 25px; color: aliceblue;font-family: arial; position: absolute; top: 0;">Kasra Seydi</h2>
+        <h2 style="margin-left: 99px;margin-top: 25px; color: aliceblue;font-family: arial; position: absolute; top: 0;" data-key="name">Kasra Seydi</h2>
+        <a href="#LangChanged">
+            <div
+            class="LangChanged"
+            id="langbtn" 
+            style="width: 53px;height: 53px; margin-left: 300px;margin-top: 20px;position: absolute; top: 0;"
+            ></div>
+      </a>
     </header>
     <!-- Header End -->
 
@@ -49,10 +58,10 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Relaxing</div>
-                                <h2>TownScaper</h2> 
-                                <p>Build quaint island towns with curvy streets. Build small hamlets, soaring cathedrals, canal networks, or sky cities on stilts. Block by block. No goal.</p>
-                                <a href="https://townscapergame.github.io/"><span>Play Now!</span> <i class="fa fa-angle-right"></i></a>
+                                <div class="label" data-key="town1">Relaxing</div>
+                                <h2 data-key="town2">TownScaper</h2> 
+                                <p data-key="town3">Build quaint island towns with curvy streets. Build small hamlets, soaring cathedrals, canal networks, or sky cities on stilts. Block by block. No goal.</p>
+                                <a href="https://townscapergame.github.io/"><span data-key="town4">Play Now!</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -61,10 +70,10 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">N/A</div>
-                                <h2>Coming Soon!</h2>
-                                <p>N/A</p>
-                                <a href="#NoLink"><span>???</span> <i class="fa fa-angle-right"></i></a>
+                                <div class="label" data-key="na1">N/A</div>
+                                <h2 data-key="na2">Coming Soon!</h2>
+                                <p data-key="na3">N/A</p>
+                                <a href="#NoLink"><span data-key="na4">???</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -94,7 +103,41 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<script src="https://itsdenji777.github.io/lottie/TI.js"></script>
+<script src="https://itsdenji777.github.io/lang.js"></script>
+<script>
+    // Lang Change
+    let currentLanguage = 'en'; // Default language
 
+
+    // Function to load the language JSON and update the page
+    function changeLanguage(language) {
+      fetch(`${language}.json`) // Fetch the JSON file for the selected language
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Could not load ${language}.json`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Update all elements with data-key attributes
+          document.querySelectorAll("[data-key]").forEach(element => {
+            const key = element.getAttribute("data-key");
+            if (data[key]) {
+              element.innerText = data[key];
+            }
+          });
+          currentLanguage = language; // Set the current language
+        })
+        .catch(error => console.error("Error loading language file:", error));
+    }
+
+
+    // Load the default language on page load
+    document.addEventListener("DOMContentLoaded", function () {
+      changeLanguage(currentLanguage);
+    });
+  </script>
 
 </body>
 
