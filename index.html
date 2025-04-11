@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://itsdenji777.github.io/langdd.css">
     <!--Imports-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
 </head>
@@ -40,13 +41,21 @@
     <header>
         <a href="https://itsdenji777.github.io/"><img height="100" width="100" src="https://itsdenji777.github.io/favicons/favicon.svg" alt="Logo"></a>
         <h2 style="margin-left: 99px;margin-top: 25px; color: aliceblue; position: absolute; top: 0;font-family: Impact, Haettenschweiler, 'Arial Narrow';" data-key="name">Kasra Seydi</h2>
-        <a href="#LangChanged">
-            <div
-            class="LangChanged"
-            id="langbtn" 
-            style="width: 53px;height: 53px; margin-left: 300px;margin-top: 20px;position: absolute; top: 0;"
-            ></div> <h4 style="color: aliceblue;font-family: 'Courier New', Courier, monospace;">New Language Detection and System is Work in Progress for this page,so currently you cannot change your language on this page!</h4>
-      </a>
+        <div class="dropdown-container">
+            <label for="languageSelector" class="dropdown-label">🌐 Choose Your Language:</label>
+            <div class="dropdown-wrapper">
+                <select id="languageSelector" class="dropdown">
+                    <option value="fa">🇮🇷 Persian</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="ru">🇷🇺 Russian</option>
+                    <option value="fr">🇫🇷 French</option>
+                    <option value="ar">🇸🇦 Arabic</option>
+                    <option value="pl">🇵🇱 Polish</option>
+                    <option value="ja">🇯🇵 Japanese</option>
+                    <option value="zh">🇨🇳 Chinese</option>
+                </select>
+            </div>
+        </div>
     </header>
     <!-- Header End -->
 
