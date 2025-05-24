@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://itsdenji777.github.io/langdd.css">
     <!--Imports-->
@@ -112,7 +111,6 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-<script src="https://itsdenji777.github.io/lottie/TI.js"></script>
 <script src="https://itsdenji777.github.io/lang.js"></script>
 <script>
   // Function to detect or retrieve the dynamic language
@@ -128,7 +126,7 @@ function getDynamicLanguage() {
 
 // Function to load the language JSON and update the page
 function changeLanguage(language) {
-    fetch(`${language}.json`) // Fetch the JSON file for the selected language
+    fetch(`langs/${language}.json`) // Fetch the JSON file for the selected language
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Could not load ${language}.json`);
